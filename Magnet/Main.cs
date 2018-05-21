@@ -9,7 +9,7 @@ namespace Magnet
 {
     public partial class Main : Form
     {
-        private int setType = 2;
+        private int setType = 1;
 
         private int visitCount = 0;
 
