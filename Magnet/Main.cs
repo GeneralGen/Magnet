@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Magnet;
 
 namespace Magnet
 {
     public partial class Main : Form
     {
-        int setType = 1;
+        private int setType = 2;
 
-        int visitCount = 0;
+        private int visitCount = 0;
 
-        bool Minimized = true;
+        private bool Minimized = true;
+
+        private StringBuilder uri;
 
         public Main()
         {
@@ -26,16 +24,37 @@ namespace Magnet
 
         private void Btant()
         {
-            string uri = "http://www.btanf.com/search/" + TextBt.Text + "-hot-desc-1";
+            uri = new StringBuilder();
 
-            OverRide(uri, 12, 10);
+            uri.Append("http://www.btanf.com/search/");
+
+            uri.Append(TextBt.Text);
+
+            uri.Append("-hot-desc-1");
+
+            OverRide(uri.ToString(), 12, 10);
         }
 
-        private void Torrentkittyzw()
+        private void Btcherry()
         {
-            string uri = "http://www.torrentkittyzw.info/s/" + TextBt.Text;
+            uri = new StringBuilder();
 
-            OverRide(uri, 28, 3);
+            uri.Append("http://www.btcerises.com/search?keyword=");
+
+            uri.Append(TextBt.Text);
+
+            OverRide(uri.ToString(), 9, 11);
+        }
+
+        private void Torrentkitty()
+        {
+            uri = new StringBuilder();
+
+            uri.Append("");
+
+            uri.Append(TextBt.Text);
+
+            OverRide(uri.ToString(), 187, 1);
         }
 
         private void OverRide(string uri, int count, int row)
@@ -80,7 +99,15 @@ namespace Magnet
             {
                 visitCount += 1;
 
-                TextResponse.Text = "请求超时，可能网站已经凉了(" + visitCount + "次)";
+                StringBuilder info = new StringBuilder();
+
+                info.Append("请求超时，可能网站已经凉了(");
+
+                info.Append(visitCount);
+
+                info.Append("次)");
+
+                TextResponse.Text = info.ToString();
             }
         }
 
@@ -96,11 +123,11 @@ namespace Magnet
 
                     case 2:
 
-                        Torrentkittyzw(); break;
+                        Btcherry(); break;
 
                     case 3:
 
-                        ; break;
+                        Torrentkitty(); break;
 
                     case 4:
 
@@ -140,16 +167,6 @@ namespace Magnet
             TextResponse.Copy();
         }
 
-        private void BTantMenuItem_Click(object sender, EventArgs e)
-        {
-            setType = 1;
-        }
-
-        private void TorrentkittyzwMenuItem_Click(object sender, EventArgs e)
-        {
-            setType = 2;
-        }
-
         private void NotifyIcon_DoubleClick(object sender, EventArgs e)
         {
             NotifyIcon.Visible = false;
@@ -171,6 +188,21 @@ namespace Magnet
             this.Show();
 
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            GcHelp.ClearMemory();
+        }
+
+        private void BTantMenuItem_Click(object sender, EventArgs e)
+        {
+            setType = 1;
+        }
+
+        private void BtcherryMenuItem_Click(object sender, EventArgs e)
+        {
+            setType = 2;
         }
     }
 }

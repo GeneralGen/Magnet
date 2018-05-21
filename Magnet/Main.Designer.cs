@@ -37,13 +37,14 @@
             this.TextBt = new System.Windows.Forms.TextBox();
             this.NotifyMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.About = new System.Windows.Forms.ToolStripMenuItem();
             this.Choice = new System.Windows.Forms.ToolStripMenuItem();
             this.BtantMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.torrentkittyzwMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtcherryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.FormMenuStrip.SuspendLayout();
             this.NotifyMenuStrip.SuspendLayout();
             this.MenuStrip.SuspendLayout();
@@ -105,14 +106,21 @@
             this.ExitMenuItem,
             this.ShowMenuItem});
             this.NotifyMenuStrip.Name = "NotifyMenuStrip";
-            this.NotifyMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.NotifyMenuStrip.Size = new System.Drawing.Size(101, 48);
             // 
             // ExitMenuItem
             // 
             this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitMenuItem.Size = new System.Drawing.Size(100, 22);
             this.ExitMenuItem.Text = "退出";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
+            // 
+            // ShowMenuItem
+            // 
+            this.ShowMenuItem.Name = "ShowMenuItem";
+            this.ShowMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.ShowMenuItem.Text = "显示";
+            this.ShowMenuItem.Click += new System.EventHandler(this.ShowMenuItem_Click);
             // 
             // NotifyIcon
             // 
@@ -141,7 +149,7 @@
             // 
             this.Choice.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtantMenuItem,
-            this.torrentkittyzwMenuItem});
+            this.BtcherryMenuItem});
             this.Choice.Name = "Choice";
             this.Choice.Size = new System.Drawing.Size(92, 21);
             this.Choice.Text = "更换搜索引擎";
@@ -149,23 +157,22 @@
             // BtantMenuItem
             // 
             this.BtantMenuItem.Name = "BtantMenuItem";
-            this.BtantMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.BtantMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BtantMenuItem.Text = "BTant";
             this.BtantMenuItem.Click += new System.EventHandler(this.BTantMenuItem_Click);
             // 
-            // torrentkittyzwMenuItem
+            // BtcherryMenuItem
             // 
-            this.torrentkittyzwMenuItem.Name = "torrentkittyzwMenuItem";
-            this.torrentkittyzwMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.torrentkittyzwMenuItem.Text = "Torrentkittyzw";
-            this.torrentkittyzwMenuItem.Click += new System.EventHandler(this.TorrentkittyzwMenuItem_Click);
+            this.BtcherryMenuItem.Name = "BtcherryMenuItem";
+            this.BtcherryMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BtcherryMenuItem.Text = "Btcherry";
+            this.BtcherryMenuItem.Click += new System.EventHandler(this.BtcherryMenuItem_Click);
             // 
-            // ShowMenuItem
+            // Timer
             // 
-            this.ShowMenuItem.Name = "ShowMenuItem";
-            this.ShowMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ShowMenuItem.Text = "显示";
-            this.ShowMenuItem.Click += new System.EventHandler(this.ShowMenuItem_Click);
+            this.Timer.Enabled = true;
+            this.Timer.Interval = 5000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Main
             // 
@@ -208,8 +215,9 @@
         private System.Windows.Forms.ToolStripMenuItem About;
         private System.Windows.Forms.ToolStripMenuItem Choice;
         private System.Windows.Forms.ToolStripMenuItem BtantMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem torrentkittyzwMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BtcherryMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ShowMenuItem;
+        private System.Windows.Forms.Timer Timer;
     }
 }
 
