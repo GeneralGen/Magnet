@@ -20,6 +20,8 @@ namespace Magnet
         public Main()
         {
             InitializeComponent();
+
+            this.WindowState = FormWindowState.Normal;
         }
 
         private void Btant()
@@ -46,15 +48,15 @@ namespace Magnet
             OverRide(uri.ToString(), 9, 11);
         }
 
-        private void Torrentkitty()
+        private void Torrentkittyzw()
         {
             uri = new StringBuilder();
 
-            uri.Append("");
+            uri.Append("http://www.torrentkittyzw.info/s/");
 
             uri.Append(TextBt.Text);
 
-            OverRide(uri.ToString(), 187, 1);
+            OverRide(uri.ToString(), 28, 3);
         }
 
         private void OverRide(string uri, int count, int row)
@@ -127,7 +129,7 @@ namespace Magnet
 
                     case 3:
 
-                        Torrentkitty(); break;
+                        Torrentkittyzw(); break;
 
                     case 4:
 
@@ -203,6 +205,11 @@ namespace Magnet
         private void BtcherryMenuItem_Click(object sender, EventArgs e)
         {
             setType = 2;
+        }
+
+        private void TorrentkittyzwMenuItem_Click(object sender, EventArgs e)
+        {
+            setType = 3;
         }
     }
 }

@@ -45,6 +45,7 @@
             this.BtantMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtcherryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.TorrentkittyzwMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FormMenuStrip.SuspendLayout();
             this.NotifyMenuStrip.SuspendLayout();
             this.MenuStrip.SuspendLayout();
@@ -149,7 +150,8 @@
             // 
             this.Choice.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtantMenuItem,
-            this.BtcherryMenuItem});
+            this.BtcherryMenuItem,
+            this.TorrentkittyzwMenuItem});
             this.Choice.Name = "Choice";
             this.Choice.Size = new System.Drawing.Size(92, 21);
             this.Choice.Text = "更换搜索引擎";
@@ -173,6 +175,13 @@
             this.Timer.Enabled = true;
             this.Timer.Interval = 5000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // TorrentkittyzwMenuItem
+            // 
+            this.TorrentkittyzwMenuItem.Name = "TorrentkittyzwMenuItem";
+            this.TorrentkittyzwMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.TorrentkittyzwMenuItem.Text = "Torrentkittyzw";
+            this.TorrentkittyzwMenuItem.Click += new System.EventHandler(this.TorrentkittyzwMenuItem_Click);
             // 
             // Main
             // 
@@ -218,6 +227,7 @@
         private System.Windows.Forms.ToolStripMenuItem BtcherryMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ShowMenuItem;
         private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.ToolStripMenuItem TorrentkittyzwMenuItem;
     }
 }
 
