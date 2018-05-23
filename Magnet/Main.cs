@@ -219,7 +219,8 @@ namespace Magnet
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            GcHelp.ClearMemory();
+            //间隔清空内存
+            //GcHelp.ClearMemory();
         }
 
         private void BTantMenuItem_Click(object sender, EventArgs e)

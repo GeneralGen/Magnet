@@ -181,7 +181,6 @@
             // 
             this.Timer.Enabled = true;
             this.Timer.Interval = 5000;
-            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Main
             // 
