@@ -44,8 +44,8 @@
             this.Choice = new System.Windows.Forms.ToolStripMenuItem();
             this.BtantMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtcherryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.TorrentkittyzwMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.FormMenuStrip.SuspendLayout();
             this.NotifyMenuStrip.SuspendLayout();
             this.MenuStrip.SuspendLayout();
@@ -104,8 +104,8 @@
             // NotifyMenuStrip
             // 
             this.NotifyMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ExitMenuItem,
-            this.ShowMenuItem});
+            this.ShowMenuItem,
+            this.ExitMenuItem});
             this.NotifyMenuStrip.Name = "NotifyMenuStrip";
             this.NotifyMenuStrip.Size = new System.Drawing.Size(101, 48);
             // 
@@ -159,29 +159,29 @@
             // BtantMenuItem
             // 
             this.BtantMenuItem.Name = "BtantMenuItem";
-            this.BtantMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BtantMenuItem.Size = new System.Drawing.Size(158, 22);
             this.BtantMenuItem.Text = "BTant";
             this.BtantMenuItem.Click += new System.EventHandler(this.BTantMenuItem_Click);
             // 
             // BtcherryMenuItem
             // 
             this.BtcherryMenuItem.Name = "BtcherryMenuItem";
-            this.BtcherryMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BtcherryMenuItem.Size = new System.Drawing.Size(158, 22);
             this.BtcherryMenuItem.Text = "Btcherry";
             this.BtcherryMenuItem.Click += new System.EventHandler(this.BtcherryMenuItem_Click);
+            // 
+            // TorrentkittyzwMenuItem
+            // 
+            this.TorrentkittyzwMenuItem.Name = "TorrentkittyzwMenuItem";
+            this.TorrentkittyzwMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.TorrentkittyzwMenuItem.Text = "Torrentkittyzw";
+            this.TorrentkittyzwMenuItem.Click += new System.EventHandler(this.TorrentkittyzwMenuItem_Click);
             // 
             // Timer
             // 
             this.Timer.Enabled = true;
             this.Timer.Interval = 5000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
-            // 
-            // TorrentkittyzwMenuItem
-            // 
-            this.TorrentkittyzwMenuItem.Name = "TorrentkittyzwMenuItem";
-            this.TorrentkittyzwMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.TorrentkittyzwMenuItem.Text = "Torrentkittyzw";
-            this.TorrentkittyzwMenuItem.Click += new System.EventHandler(this.TorrentkittyzwMenuItem_Click);
             // 
             // Main
             // 

@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Magnet
 {
     public partial class Main : Form
     {
-        private int setType = 1;
+        int setType = 1;
 
-        private int visitCount = 0;
+        int visitCount = 0;
 
-        private bool Minimized = true;
+        bool Minimized = true;
 
-        private StringBuilder uri;
+        StringBuilder uri;
 
         public Main()
         {
@@ -24,7 +25,7 @@ namespace Magnet
             this.WindowState = FormWindowState.Normal;
         }
 
-        private void Btant()
+        void Btant()
         {
             uri = new StringBuilder();
 
@@ -37,7 +38,7 @@ namespace Magnet
             OverRide(uri.ToString(), 12, 10);
         }
 
-        private void Btcherry()
+        void Btcherry()
         {
             uri = new StringBuilder();
 
@@ -48,7 +49,7 @@ namespace Magnet
             OverRide(uri.ToString(), 9, 11);
         }
 
-        private void Torrentkittyzw()
+        void Torrentkittyzw()
         {
             uri = new StringBuilder();
 
@@ -59,43 +60,28 @@ namespace Magnet
             OverRide(uri.ToString(), 28, 3);
         }
 
-        private void OverRide(string uri, int count, int row)
+        void Zhongzicili()
         {
-            try
+            uri = new StringBuilder();
+
+            uri.Append("");
+
+            uri.Append(TextBt.Text);
+
+            uri.Append("/1-4-0.html");
+
+            OverRide(uri.ToString(), 28, 3);
+        }
+
+        void OverRide(string uri, int count, int row)
+        {
+
+#if DEBUG
+            Fix(uri, count, row);
+#else
+             try
             {
-                TextResponse.Clear();
-
-                string response = NetHelp.WebClientGet(uri);
-
-                string reg = @"[<].*?[>]";
-
-                response = Regex.Replace(response, reg, "");
-
-                TextResponse.Text = Regex.Replace(response, @"(?s)\n\s*\n", "\n");
-
-                List<string> lines = new List<string>();
-
-                StringBuilder text = new StringBuilder();
-
-                lines = TextResponse.Lines.ToList();
-
-                lines.RemoveRange(0, count);
-
-                int i = 0;
-
-                foreach (var item in lines)
-                {
-                    i += 1;
-
-                    text.AppendLine(item);
-
-                    if (i % row == 0)
-                    {
-                        text.AppendLine();
-                    }
-                }
-
-                TextResponse.Text = text.ToString();
+                Fix(uri, count, row);
             }
             catch (Exception)
             {
@@ -111,6 +97,45 @@ namespace Magnet
 
                 TextResponse.Text = info.ToString();
             }
+#endif
+
+        }
+
+        void Fix(string uri, int count, int row)
+        {
+            TextResponse.Clear();
+
+            string response = NetHelp.WebClientGet(uri);
+
+            string reg = @"[<].*?[>]";
+
+            response = Regex.Replace(response, reg, "");
+
+            TextResponse.Text = Regex.Replace(response, @"(?s)\n\s*\n", "\n");
+
+            List<string> lines = new List<string>();
+
+            StringBuilder text = new StringBuilder();
+
+            lines = TextResponse.Lines.ToList();
+
+            lines.RemoveRange(0, count);
+
+            int i = 0;
+
+            foreach (var item in lines)
+            {
+                i += 1;
+
+                text.AppendLine(item);
+
+                if (i % row == 0)
+                {
+                    text.AppendLine();
+                }
+            }
+
+            TextResponse.Text = text.ToString();
         }
 
         private void TextBt_KeyPress(object sender, KeyPressEventArgs e)
@@ -133,7 +158,7 @@ namespace Magnet
 
                     case 4:
 
-                        ; break;
+                        Zhongzicili(); break;
 
                     default:
 
