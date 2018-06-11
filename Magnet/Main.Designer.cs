@@ -36,8 +36,8 @@
             this.LabelSearch = new System.Windows.Forms.Label();
             this.TextBt = new System.Windows.Forms.TextBox();
             this.NotifyMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.About = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +46,7 @@
             this.BtcherryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TorrentkittyzwMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.FeikebtMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FormMenuStrip.SuspendLayout();
             this.NotifyMenuStrip.SuspendLayout();
             this.MenuStrip.SuspendLayout();
@@ -58,9 +59,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextResponse.ContextMenuStrip = this.FormMenuStrip;
             this.TextResponse.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextResponse.Location = new System.Drawing.Point(12, 58);
+            this.TextResponse.Location = new System.Drawing.Point(12, 67);
             this.TextResponse.Name = "TextResponse";
-            this.TextResponse.Size = new System.Drawing.Size(889, 481);
+            this.TextResponse.Size = new System.Drawing.Size(889, 472);
             this.TextResponse.TabIndex = 5;
             this.TextResponse.Text = "";
             // 
@@ -84,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelSearch.AutoSize = true;
-            this.LabelSearch.Location = new System.Drawing.Point(212, 31);
+            this.LabelSearch.Location = new System.Drawing.Point(213, 43);
             this.LabelSearch.Name = "LabelSearch";
             this.LabelSearch.Size = new System.Drawing.Size(149, 12);
             this.LabelSearch.TabIndex = 4;
@@ -95,7 +96,7 @@
             this.TextBt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBt.Location = new System.Drawing.Point(367, 28);
+            this.TextBt.Location = new System.Drawing.Point(368, 40);
             this.TextBt.Name = "TextBt";
             this.TextBt.Size = new System.Drawing.Size(308, 21);
             this.TextBt.TabIndex = 3;
@@ -109,19 +110,19 @@
             this.NotifyMenuStrip.Name = "NotifyMenuStrip";
             this.NotifyMenuStrip.Size = new System.Drawing.Size(101, 48);
             // 
-            // ExitMenuItem
-            // 
-            this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.ExitMenuItem.Text = "退出";
-            this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
-            // 
             // ShowMenuItem
             // 
             this.ShowMenuItem.Name = "ShowMenuItem";
             this.ShowMenuItem.Size = new System.Drawing.Size(100, 22);
             this.ShowMenuItem.Text = "显示";
             this.ShowMenuItem.Click += new System.EventHandler(this.ShowMenuItem_Click);
+            // 
+            // ExitMenuItem
+            // 
+            this.ExitMenuItem.Name = "ExitMenuItem";
+            this.ExitMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.ExitMenuItem.Text = "退出";
+            this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
             // NotifyIcon
             // 
@@ -151,7 +152,8 @@
             this.Choice.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtantMenuItem,
             this.BtcherryMenuItem,
-            this.TorrentkittyzwMenuItem});
+            this.TorrentkittyzwMenuItem,
+            this.FeikebtMenuItem});
             this.Choice.Name = "Choice";
             this.Choice.Size = new System.Drawing.Size(92, 21);
             this.Choice.Text = "更换搜索引擎";
@@ -159,21 +161,21 @@
             // BtantMenuItem
             // 
             this.BtantMenuItem.Name = "BtantMenuItem";
-            this.BtantMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.BtantMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BtantMenuItem.Text = "BTant";
             this.BtantMenuItem.Click += new System.EventHandler(this.BTantMenuItem_Click);
             // 
             // BtcherryMenuItem
             // 
             this.BtcherryMenuItem.Name = "BtcherryMenuItem";
-            this.BtcherryMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.BtcherryMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BtcherryMenuItem.Text = "Btcherry";
             this.BtcherryMenuItem.Click += new System.EventHandler(this.BtcherryMenuItem_Click);
             // 
             // TorrentkittyzwMenuItem
             // 
             this.TorrentkittyzwMenuItem.Name = "TorrentkittyzwMenuItem";
-            this.TorrentkittyzwMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.TorrentkittyzwMenuItem.Size = new System.Drawing.Size(180, 22);
             this.TorrentkittyzwMenuItem.Text = "Torrentkittyzw";
             this.TorrentkittyzwMenuItem.Click += new System.EventHandler(this.TorrentkittyzwMenuItem_Click);
             // 
@@ -181,6 +183,13 @@
             // 
             this.Timer.Enabled = true;
             this.Timer.Interval = 5000;
+            // 
+            // FeikebtMenuItem
+            // 
+            this.FeikebtMenuItem.Name = "FeikebtMenuItem";
+            this.FeikebtMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FeikebtMenuItem.Text = "Feikebt";
+            this.FeikebtMenuItem.Click += new System.EventHandler(this.FeikebtMenuItem_Click);
             // 
             // Main
             // 
@@ -227,6 +236,7 @@
         private System.Windows.Forms.ToolStripMenuItem ShowMenuItem;
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.ToolStripMenuItem TorrentkittyzwMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FeikebtMenuItem;
     }
 }
 

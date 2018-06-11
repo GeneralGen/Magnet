@@ -42,8 +42,8 @@ namespace Magnet
         {
             uri = new StringBuilder();
 
-            uri.Append("http://www.btcerises.com/search?keyword=");
-
+            uri.Append("http://www.btcerises.net/search?keyword=");
+            
             uri.Append(TextBt.Text);
 
             OverRide(uri.ToString(), 9, 11);
@@ -60,17 +60,17 @@ namespace Magnet
             OverRide(uri.ToString(), 28, 3);
         }
 
-        void Zhongzicili()
+        void Feikebt()
         {
             uri = new StringBuilder();
 
-            uri.Append("");
+            uri.Append("http://feikebt.org/s/");
 
             uri.Append(TextBt.Text);
 
-            uri.Append("/1-4-0.html");
+            uri.Append(".html");
 
-            OverRide(uri.ToString(), 28, 3);
+            FixEx(uri.ToString(), 1, 7);
         }
 
         void OverRide(string uri, int count, int row)
@@ -79,7 +79,7 @@ namespace Magnet
 #if DEBUG
             Fix(uri, count, row);
 #else
-             try
+            try
             {
                 Fix(uri, count, row);
             }
@@ -105,13 +105,60 @@ namespace Magnet
         {
             TextResponse.Clear();
 
-            string response = NetHelp.WebClientGet(uri);
+            try
+            {
+                string response = NetHelp.WebClientGet(uri);
 
-            string reg = @"[<].*?[>]";
+                string reg = @"[<].*?[>]";
 
-            response = Regex.Replace(response, reg, "");
+                response = Regex.Replace(response, reg, "");
 
-            TextResponse.Text = Regex.Replace(response, @"(?s)\n\s*\n", "\n");
+                TextResponse.Text = Regex.Replace(response, @"(?s)\n\s*\n", "\n");
+            }
+            catch (Exception e)
+            {
+                TextResponse.Text = e.ToString(); return;
+            }
+
+            List<string> lines = new List<string>();
+
+            StringBuilder text = new StringBuilder();
+
+            lines = TextResponse.Lines.ToList();
+
+            lines.RemoveRange(0, count);
+
+            int i = 0;
+
+            foreach (var item in lines)
+            {
+                i += 1;
+
+                text.AppendLine(item);
+
+                if (i % row == 0)
+                {
+                    text.AppendLine();
+                }
+            }
+
+            TextResponse.Text = text.ToString();
+        }
+
+        void FixEx(string uri, int count, int row)
+        {
+            TextResponse.Clear();
+
+            try
+            {
+                string response = NetHelp.WebClientGet(uri);
+
+                TextResponse.Text = MyRegex.Span(response);
+            }
+            catch (Exception e)
+            {
+                TextResponse.Text = e.ToString(); return;
+            }
 
             List<string> lines = new List<string>();
 
@@ -158,7 +205,7 @@ namespace Magnet
 
                     case 4:
 
-                        Zhongzicili(); break;
+                        Feikebt(); break;
 
                     default:
 
@@ -217,12 +264,6 @@ namespace Magnet
             this.WindowState = FormWindowState.Normal;
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            //间隔清空内存
-            //GcHelp.ClearMemory();
-        }
-
         private void BTantMenuItem_Click(object sender, EventArgs e)
         {
             setType = 1;
@@ -236,6 +277,11 @@ namespace Magnet
         private void TorrentkittyzwMenuItem_Click(object sender, EventArgs e)
         {
             setType = 3;
+        }
+
+        private void FeikebtMenuItem_Click(object sender, EventArgs e)
+        {
+            setType = 4;
         }
     }
 }

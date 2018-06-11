@@ -26,6 +26,7 @@ namespace Magnet
             {
                 Timeout = 3000
             };
+
             byte[] result = webClient.DownloadData(gethost);
 
             return Encoding.UTF8.GetString(result);
